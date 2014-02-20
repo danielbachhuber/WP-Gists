@@ -99,7 +99,7 @@ define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/content/mu-plugins' );
 define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/mu-plugins' );
 
 // Set default theme.
-define( 'WP_DEFAULT_THEME', 'twentytwelve' );
+define( 'WP_DEFAULT_THEME', 'wpgists' );
 
 // Prevent editing of files through the admin.
 define( 'DISALLOW_FILE_EDIT', true );
