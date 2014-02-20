@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname( __FILE__ ) . '/inc/class-gist.php';
+
 /**
  * Register our content types
  */
