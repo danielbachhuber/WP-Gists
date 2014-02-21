@@ -8,8 +8,9 @@ define( ['backbone'], function( Backbone ) {
 			},
 
 			"gist/:gist_id/edit(/)": function( gist_id ) {
-				require( ['app/gist/gist_edit.view'], function( GistEditView ) {
-					new GistEditView();
+				require( ['app/gists/gist_edit.view'], function( GistEditView ) {
+					var view = new GistEditView();
+					Backbone.$( "#main" ).html( view.$el );
 				});
 			}
 		}
