@@ -109,6 +109,10 @@ add_action( 'init', function(){
 
 });
 
+/**
+ * Register and enqueue client-side JavaScript.
+ */
+ 
 function wpgists_scripts() {
 	wp_register_script( 'requirejs', '//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js' );
 	wp_register_script( 'wpgists-app', get_stylesheet_directory_uri() . '/js/app/main.js', array( 'requirejs' ), WPGISTS_VERSION, true );
@@ -119,6 +123,7 @@ function wpgists_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'wpgists_scripts' );
+
 /**
  * Register our API endpoints
  */
