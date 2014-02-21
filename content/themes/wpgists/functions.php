@@ -1,5 +1,6 @@
 <?php
 
+require_once dirname( __FILE__ ) . '/inc/github-auth.php';
 require_once dirname( __FILE__ ) . '/inc/class-gist.php';
 
 /**
