@@ -15,7 +15,6 @@ define( ['backbone'], function( Backbone ) {
 			success: function( data ) {
 				var gist = new Gist( data );
 
-				console.log( "Imported:", gist );
 				deferred.resolve( gist );
 			}
 		});
