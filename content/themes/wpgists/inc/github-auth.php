@@ -58,7 +58,35 @@ add_action( 'init', function() {
 			exit;
 		}
 
-		$body = wp_remote_retrieve_body( $response );
+		// Parse the authorization token
+		parse_str( wp_remote_retrieve_body( $response ) );
+
+		$response = wp_remote_get( add_query_arg( 'access_token', $access_token, 'https://api.github.com/user' ) );
+
+		if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
+			echo "Error getting user data.";
+			exit;
+		}
+
+		$user_obj = json_decode( wp_remote_retrieve_body( $response ) );
+
+		$user_login = 'github_' . (int) $user_obj->id;
+		$user = get_user_by( 'login', $user_login );
+		if ( ! $user ) {
+
+			$user_data = array(
+				'user_login'     => $user_login,
+				'user_email'     => sanitize_email( $user_obj->email ),
+				'display_name'   => sanitize_text_field( $user_obj->name ),
+				);
+			$user_id = wp_insert_user( $user_data );
+			$user = get_user_by( 'id', $user_id );
+		}
+
+		wp_clear_auth_cookie();
+		wp_set_auth_cookie( $user->ID );
+		wp_safe_redirect( home_url() );
+		exit;
 
 	}
 
