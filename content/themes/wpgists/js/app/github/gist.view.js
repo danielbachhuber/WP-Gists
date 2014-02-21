@@ -1,16 +1,30 @@
-define( ['backbone', 'app/router'], function( Backbone, Router ) {
+define( ['backbone', 'app/router', 'app/gists/gist.model'], function( Backbone, Router, Gist ) {
 	var GistImportView = Backbone.View.extend({
 		events: {
 			"click [data-control='import']": function( e ) {
 				e.preventDefault();
 
-				console.log( "Import!" );
-				Router.navigate( 'gist/1/edit' );
+				// TODO: Validate gist_url before submitting.
+
+				console.log( this.$gist_url.val() );
+
+				Gist.importGithubGist( this.$gist_url.val() )
+					.done( function( gist ) {
+						Router.navigate( 'gist/' + gist.id + '/edit' );
+					})
+					.fail( function() {
+						// TODO: Handle error.
+						console.log( "Error! Could not import gist from Github." )
+					});
 			}
 		},
 
 		initialize: function( options ) {
-			console.log( "Form:", this.$el );
+			this.bind();
+		},
+
+		bind: function() {
+			this.$gist_url = this.$( '[data-bind="gist_url"]' );
 		}
 	});
 
