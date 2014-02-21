@@ -10,7 +10,7 @@ define( ['backbone', 'app/router', 'app/gists/gist.model'], function( Backbone, 
 
 				Gist.importGithubGist( this.$gist_url.val() )
 					.done( function( gist ) {
-						Router.navigate( 'gist/' + gist.id + '/edit' );
+						Router.navigate( 'gist/' + gist.id + '/edit', { trigger: true });
 					})
 					.fail( function() {
 						// TODO: Handle error.
