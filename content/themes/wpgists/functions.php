@@ -121,6 +121,8 @@ add_action( 'init', function() {
 	H_API()->add_endpoint( new Gist_Endpoint );
 	require_once dirname( __FILE__ ) . '/inc/endpoints/class-gist-base-endpoint.php';
 	H_API()->add_endpoint( new Gist_Base_Endpoint );
+	require_once dirname( __FILE__ ) . '/inc/endpoints/class-gist-github-endpoint.php';
+	H_API()->add_endpoint( new Gist_Github_Endpoint );
 
 });
 

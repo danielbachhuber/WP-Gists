@@ -8,7 +8,7 @@ class Gist_Endpoint extends \H_API\Endpoints\Endpoint {
 	protected $pattern = 'gist/{POST_ID}';
 	protected $query = 'post_id=$matches[1]';
 	protected $methods = array( 'GET', 'POST', 'DELETE' );
-	protected $authenticated = true;
+	protected $authenticated = false;
 	protected $public = true;
 	protected $arguments = array(
 		'title' => array(
@@ -38,7 +38,9 @@ class Gist_Endpoint extends \H_API\Endpoints\Endpoint {
 	}
 
 	protected function delete() {
-		wp_trash_post( $this->post->ID, true );
+	
+		// Check that the user can
+
 	}
 
 	protected function validate_query_vars( $query_vars ) {
@@ -46,6 +48,11 @@ class Gist_Endpoint extends \H_API\Endpoints\Endpoint {
 		parent::validate_query_vars( $query_vars );
 
 		$post = get_post( $query_vars['post_id'] );
+		if ( $post ) {
+			$this->post = $post;
+		} else {
+			$this->send_error( 'Gist not found.', 404 );
+		}
 
 	}
 }
