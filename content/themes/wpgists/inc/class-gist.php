@@ -116,7 +116,7 @@ class Gist {
 			return new WP_Error( 'invalid-github-url', __( 'Invalid Github Gist URL', 'wpgists' ) );
 		}
 
-		preg_match( '#https?://gist\.github\.com/([\w]+)/([\w]+)#i', 'https://gist.github.com/danielbachhuber/b043e0cba5f3025c272b' , $matches );
+		preg_match( '#https?://gist\.github\.com/([\w]+)/([\w]+)#i', $gist_url, $matches );
 		$gist_id = $matches[2];
 
 		$gist_data = wp_remote_get( sprintf( 'https://api.github.com/gists/%s', $gist_id ) );
