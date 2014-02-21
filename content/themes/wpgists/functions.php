@@ -4,6 +4,7 @@ if ( !defined( 'WPGISTS_VERSION' ) ) {
 	define( 'WPGISTS_VERSION', '0.0.1' );
 }
 
+require_once dirname( __FILE__ ) . '/inc/github-auth.php';
 require_once dirname( __FILE__ ) . '/inc/class-gist.php';
 
 /**
@@ -118,3 +119,25 @@ function wpgists_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'wpgists_scripts' );
+/**
+ * Register our API endpoints
+ */
+
+add_action( 'plugins_loaded', function() {
+	H_API()->add_endpoints_dir( dirname( __FILE__ ) . '/inc/endpoints' );
+});
+
+add_action( 'init', function() {
+
+	/**
+	 * Gist management
+	 */
+	require_once dirname( __FILE__ ) . '/inc/endpoints/class-gist-endpoint.php';
+	H_API()->add_endpoint( new Gist_Endpoint );
+	require_once dirname( __FILE__ ) . '/inc/endpoints/class-gist-base-endpoint.php';
+	H_API()->add_endpoint( new Gist_Base_Endpoint );
+	require_once dirname( __FILE__ ) . '/inc/endpoints/class-gist-github-endpoint.php';
+	H_API()->add_endpoint( new Gist_Github_Endpoint );
+
+});
+
