@@ -134,7 +134,7 @@ class Gist {
 
 		$args = array(
 			'content'       => $first_gist->content,
-			'description'   => $first_gist->description,
+			'description'   => $gist_obj->description,
 			'github_url'    => $gist_url
 			);
 		return Gist::create( $args );
