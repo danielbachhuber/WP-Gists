@@ -4,3 +4,6 @@
 [submodule "content/mu-plugins/h-api"]
 	path = content/mu-plugins/h-api
 	url = git@github.com:humanmade/h-api.git
+[submodule "content/themes/wpgists/lib/mustache"]
+	path = content/themes/wpgists/lib/mustache
+	url = git@github.com:bobthecow/mustache.php.git
