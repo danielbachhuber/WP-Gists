@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<?php get_template_part( 'templates/gist', 'import' ); ?>
+	<?php render_mustache( 'templates/gist-import' ); ?>
 
 	<?php if ( have_posts() ) : ?>
 

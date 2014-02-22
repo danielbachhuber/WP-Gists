@@ -8,6 +8,24 @@ require_once dirname( __FILE__ ) . '/inc/github-auth.php';
 require_once dirname( __FILE__ ) . '/inc/class-gist.php';
 
 /**
+ * Load Mustache.php
+ */
+
+require_once dirname( __FILE__ ) . '/lib/mustache/src/Mustache/Autoloader.php';
+
+Mustache_Autoloader::register();
+
+$mustache = new Mustache_Engine;
+
+// Convenience function for loading and rendering mustache partial.
+function render_mustache( $file, $data = array() ) {
+	global $mustache;
+
+	$template = file_get_contents( locate_template( $file . ".mustache" ) );
+	echo $mustache->render( $template, $data );
+}
+
+/**
  * Register our content types
  */
 add_action( 'init', function(){
