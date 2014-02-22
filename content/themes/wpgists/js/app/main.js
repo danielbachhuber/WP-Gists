@@ -2,9 +2,10 @@ require.config({
 	baseUrl: wp_gists.app_root,
 
 	paths: {
-		'jquery': "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min",
-		'backbone': "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min",
-		'underscore': "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min"
+		// Paths localized via theme `funtions.php`.
+		'jquery':		wp_gists.paths.jquery,
+		'backbone':		wp_gists.paths.backbone,
+		'underscore':	wp_gists.paths.underscore
 	},
 
 	shim: {

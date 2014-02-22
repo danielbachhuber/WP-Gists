@@ -114,10 +114,20 @@ add_action( 'init', function(){
  */
 
 function wpgists_scripts() {
-	wp_register_script( 'requirejs', '//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js' );
+	wp_register_script( 'requirejs', get_stylesheet_directory_uri() . '/js/lib/require.min.js' );
 	wp_register_script( 'wpgists-app', get_stylesheet_directory_uri() . '/js/app/main.js', array( 'requirejs' ), WPGISTS_VERSION, true );
 
-	wp_localize_script( 'wpgists-app', 'wp_gists', array( 'app_root' => get_stylesheet_directory_uri() . '/js', 'nonce' => wp_create_nonce( 'h-api' ) ) );
+	$localization = array(
+		'app_root' => get_stylesheet_directory_uri() . '/js',
+		'nonce' => wp_create_nonce( 'h-api' ),
+		'paths' => array(
+			'jquery' => site_url() . '/wp-includes/js/jquery/jquery',
+			'underscore' => site_url() . '/wp-includes/js/underscore.min',
+			'backbone' => site_url() . '/wp-includes/js/backbone.min',
+		)
+	);
+
+	wp_localize_script( 'wpgists-app', 'wp_gists', $localization );
 
 	wp_enqueue_script( 'wpgists-app' );
 }
