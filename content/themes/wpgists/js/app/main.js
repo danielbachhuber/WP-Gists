@@ -5,7 +5,8 @@ require.config({
 		// Paths localized via theme `funtions.php`.
 		'jquery':		wp_gists.paths.jquery,
 		'backbone':		wp_gists.paths.backbone,
-		'underscore':	wp_gists.paths.underscore
+		'underscore':	wp_gists.paths.underscore,
+		'handlebars':	'lib/handlebars-v1.3.0'
 	},
 
 	shim: {
@@ -16,6 +17,9 @@ require.config({
 		"underscore": {
 			exports: "_"
 		},
+		"handlebars": {
+			exports: "Handlebars"
+		}
 	}
 });
 
