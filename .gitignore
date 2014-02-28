@@ -1,2 +1,4 @@
 /wp-config-env.php
 .htaccess
+node_modules
+content/themes/wpgists/assets/stylesheets/*.css

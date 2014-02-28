@@ -10,4 +10,11 @@ Using an existing local development environment (like Salty WordPress or Varying
 1. Install WordPress: `wp core install --prompt`
 1. Navigate to wpgists.dev in your web browser.
 
+To build stylesheets using Sass:
+
+1. Install Node.js and NPM
+1. Install the package dependencies: from the project root, `npm install`
+1. Install Grunt globally: `npm install -g grunt-cli`
+1. Build: from the project root, `grunt build`
+
 Et voila!

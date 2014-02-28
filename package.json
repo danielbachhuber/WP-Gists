@@ -1,0 +1,20 @@
+{
+	"name": "WP-Gists",
+	"version": "0.0.1",
+	"description": "A community-driven site of gists for your WordPress.",
+	"author": "Daniel Bachhuber <d@danielbachhuber.com>",
+	"contributors": [
+		{ "name": "Daniel Bachhuber", "email": "d@danielbachhuber.com" },
+		{ "name": "Zebulon Young", "email": "zyoung@zebulonyoung.com" }
+	],
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:danielbachhuber/WP-Gists.git"
+	},
+	"devDependencies": {
+		"requirejs": "~2.1.9",
+		"grunt": "~0.4.2",
+		"grunt-contrib-watch": "~0.5.3",
+		"grunt-sass": "~0.10.0"
+	}
+}
