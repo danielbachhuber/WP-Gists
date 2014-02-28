@@ -128,10 +128,12 @@ add_action( 'init', function(){
 });
 
 /**
- * Register and enqueue client-side JavaScript.
+ * Register and enqueue styles and client-side JavaScript.
  */
 
 function wpgists_scripts() {
+	wp_enqueue_style( 'core', get_stylesheet_directory_uri() . '/assets/stylesheets/core.css' );
+
 	wp_register_script( 'requirejs', get_stylesheet_directory_uri() . '/js/lib/require.min.js' );
 	wp_register_script( 'wpgists-app', get_stylesheet_directory_uri() . '/js/app/main.js', array( 'requirejs' ), WPGISTS_VERSION, true );
 

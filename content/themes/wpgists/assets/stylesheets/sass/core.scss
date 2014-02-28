@@ -1,0 +1,64 @@
+@import url(http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,700);
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+button {
+	background-color: #333;
+	border: 0 none;
+	border-radius: 3px;
+	color: #fff;
+}
+
+.snippet-detail {
+	margin: 0 auto;
+	width: 960px;
+}
+
+.snippet-detail .snippet-description input {
+	border: 1px solid #999;
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	width: 100%;
+}
+
+.snippet-detail .snippet-author {
+	border: 1px solid #666;
+	margin-top: 10px;
+	width: 100%;
+	min-height: 200px;
+}
+
+.snippet-detail .snippet-author .tools {
+	background-color: #ccc;
+	padding: 5px 10px;
+	overflow: hidden;
+}
+
+.snippet-detail .snippet-tags {
+	margin: 10px 0;
+	overflow: hidden;
+}
+
+.snippet-detail .snippet-tags h3 {
+	float: left;
+	margin: 0;
+}
+
+.snippet-detail .snippet-tags ul.tags {
+	list-style: none;
+	margin: 0 0 0 80px;
+	padding: 0;
+	overflow: hidden;
+}
+
+.snippet-detail .snippet-tags ul.tags li {
+	background-color: #333;
+	border-radius: 3px;
+	color: #fff;
+	float: left;
+	margin: 0 0 5px 5px;
+	padding: 2px 8px 5px;
+}
