@@ -1,5 +1,7 @@
 define( ['backbone'], function( Backbone ) {
 	var Gist = Backbone.Model.extend({
+		urlRoot: "/api/json/gist",
+
 		defaults: {
 			"_nonce": wp_gists.nonce
 		}

@@ -8,9 +8,18 @@ define( ['backbone'], function( Backbone ) {
 			},
 
 			"gist/:gist_id/edit(/)": function( gist_id ) {
-				require( ['app/gists/gist_edit.view'], function( GistEditView ) {
-					var view = new GistEditView();
-					Backbone.$( "#main" ).html( view.$el );
+				require( ['app/gists/gist.model', 'app/gists/gist_edit.view'], function( Gist, GistEditView ) {
+					var gist = new Gist({ id: gist_id } );
+
+					gist.fetch()
+						.done( function() {
+							var view = new GistEditView({ model: gist });
+
+							Backbone.$( "#main" ).html( view.$el );
+						})
+						.fail( function() {
+							console.log( "Could not load gist." );	// TODO: Better error handling.
+						});
 				});
 			}
 		}
