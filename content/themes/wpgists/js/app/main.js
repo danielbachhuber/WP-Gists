@@ -3,14 +3,15 @@ require.config({
 
 	paths: {
 		// Paths localized via theme `funtions.php`.
-		'jquery':		wp_gists.paths.jquery,
-		'backbone':		wp_gists.paths.backbone,
-		'underscore':	wp_gists.paths.underscore,
-		'handlebars':	'lib/handlebars-v1.3.0'
+		'jquery':			wp_gists.paths.jquery,
+		'backbone-core':	wp_gists.paths.backbone,
+		'backbone':			'lib/backbone.extended',
+		'underscore':		wp_gists.paths.underscore,
+		'handlebars':		'lib/handlebars-v1.3.0'
 	},
 
 	shim: {
-		"backbone": {
+		"backbone-core": {
 			deps: ['underscore', 'jquery'],
 			exports: 'Backbone'
 		},
