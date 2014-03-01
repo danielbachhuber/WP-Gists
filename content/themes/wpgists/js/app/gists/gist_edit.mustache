@@ -1,16 +1,18 @@
 <div class="snippet-detail">
 	<h2>Snippet</h2>
 	<div class="snippet-description">
-		<input type="text" placeholder="Description" value="{{ description }}" />
+		<input type="text" placeholder="Description" data-bind="description" value="{{ description }}" />
 	</div>
 
-	<div class="snippet-author">
+	<div class="snippet-content">
 		<div class="tools">
 			<button type="button">Some Tool</button>
 			<button type="button">Another Tool</button>
 		</div>
-		<div class="content">{{ content }}</div>
+		<div class="content">
+			<textarea data-bind="content">{{ content }}</textarea>
+		</div>
 	</div>
 
-	<button type="button">Save</button>
+	<button type="button" data-control="save">Save</button>
 </div>
